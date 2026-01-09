@@ -1,0 +1,51 @@
+version: "3"
+
+tasks:
+    default:
+        cmds:
+            - task --list
+
+    build:
+        aliases: [b]
+        desc: Build
+        cmds:
+            - uv build
+
+    clean:
+        aliases: [c]
+        desc: Clean up
+        cmds:
+            - find . -type d -name ".terraform" -prune -exec rm -rf {} +
+            - find . -name ".DS_Store" -delete
+            - find . -name ".terraform.lock.hcl" -delete
+            - find . -name "hash" -delete
+            - find . -name "terraform.tfstate" -delete
+            - find . -name "terraform.tfstate.backup" -delete
+
+    format:
+        aliases: [f]
+        desc: Format the source code
+        cmds:
+            - ruff format .
+            - ruff check . --fix
+
+    lint:
+        aliases: [l]
+        desc: Static analysis
+        cmds:
+            - ruff check .
+            - mypy .
+
+    test:
+        aliases: [t]
+        desc: Test (pytest)
+        cmds:
+            - uv run --dev pytest --cache-clear --capture=no --verbosity 2 tests/*.py
+
+    test1:
+        aliases: [t1]
+        desc: Test
+        cmds:
+            - uv run python -m notify_to_cisco_webex --message '# 1-1. Hello! こんにちは！'
+            - uv run python -m notify_to_cisco_webex --message '# 1-2. Hello! こんにちは！' --format text
+            - uv run python -m notify_to_cisco_webex --message '# 1-3. Hello! こんにちは！' --file tests/assets/hello.pdf --file tests/assets/fruits.jpg

@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "notify-to-cisco-webex"
+version = "0.0.6"
+description = "Send messages and files to Cisco Webex."
+authors = [
+    { name = "sig9org", email = "sig9@sig9.org" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+keywords = ["cisco", "webex", "tool", "chat", "notification", "notify", "message"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "httpx>=0.28.1",
+    "python-dotenv>=1.2.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
+
+[project.scripts]
+"notify-to-cisco-webex" = "notify_to_cisco_webex.__main__:run"
+
+[project.urls]
+Homepage = "https://github.com/sig9org/notify-to-cisco-webex"
+Repository = "https://github.com/sig9org/notify-to-cisco-webex"
+Issues = "https://github.com/sig9org/notify-to-cisco-webex/issues"
+
+[tool.setuptools.packages.find]
+include = ["notify_to_cisco_webex"]
