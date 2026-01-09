@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "notify-to-cisco-webex"
-version = "0.0.6"
+version = "0.0.7"
 description = "Send messages and files to Cisco Webex."
 authors = [
     { name = "sig9org", email = "sig9@sig9.org" }
